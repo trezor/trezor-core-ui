@@ -1,0 +1,394 @@
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: #111;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	display: none;
+}
+::-webkit-scrollbar-thumb {
+	width: 0;
+	height: 0;
+	display: none;
+}
+::-webkit-scrollbar-button {
+	width: 0;
+	height: 0;
+	display: none;
+}
+::-webkit-scrollbar-corner {
+	background-color: transparent;
+}
+
+*:focus {
+	outline: none;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+a {
+	text-decoration: none;
+	border: 0;
+}
+
+button {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+.screen { 
+	overflow-x: hidden;
+	overflow-y: hidden;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	line-height: 30px;
+	width: 240px;
+	height: 240px;
+	color: #eee;
+}
+
+.light_green {
+	color: #87CE26;
+}
+
+.dark_green {
+	color: #445514;
+}
+
+.grey {
+	color: #999;
+}
+
+.bootloader img { 
+	width: 120px;
+}
+
+.homescreen {
+
+}
+
+.title {
+	color: #87CE26;
+}
+
+#price {
+	margin-top: 10px;
+	display: block;
+	position: relative;
+	color: #fff;
+	font-family: 'Roboto Mono', sans-serif;
+	font-weight: 300;
+	font-size: 28px;
+}
+
+#subtitle {
+	display: block;
+	font-size: 20px;
+	color: #999;
+}
+
+#progress {
+	color: #87CE26;
+	font-size: 20px;	
+	font-family: 'Roboto Mono', sans-serif;
+}
+
+.pin {
+
+}
+
+#pin_input {
+	background-color: #111;
+	width: 100%;
+	text-align: center;
+	border: 0;
+	outline: none;
+	position: absolute;
+	bottom: 6px;
+	color: #fff;
+	font-size: 21px;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+}
+
+.pad_line > div, .pin_input > div {
+	height: 100%;
+}
+
+.vertical-border {
+	border-bottom: 2px solid #333;
+}
+
+.no-border {
+	border: 0 !important;
+}
+
+.to-bottom {
+	position: absolute;
+	bottom: 0;
+}
+
+.pad_line > div { 
+	border-left: 2px solid #333;
+}
+
+.pad_line button {
+	color: #fff;
+	font-size: 20px;
+	background-color: transparent;
+	padding: 0;
+	border:0;
+	width: 100%;
+	height: 100%;
+	font-family: 'Roboto Mono', sans-serif;
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+}
+
+.pad_line button:focus {
+	transform: scale(1.5); 
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.backspace {
+	position: absolute;
+	top: 7px;
+	right: 10px;
+	display: none;
+	text-align: center;
+	width: 32px;
+	height: 32px;
+	line-height: 28px;
+	border-radius: 50%;
+	background-color: #333;
+	color: #999;
+}
+
+.controls > div {
+	height: 100%;
+}
+
+.controls button { 
+	border: 0;
+	outline: none;
+	font-size: 20px;
+	border-radius: 3px;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.controls button i {
+	padding: 0 5px 0 3px;
+}
+
+.controls button.confirm {
+	background-color: #445514;
+	color: #87CE26;
+}
+.controls button.cancel {
+	background-color: #660000;
+	color: red;
+}
+
+.controls button.hold {
+	z-index: 4;
+	background-color: #2098D1;
+	color: #fff;
+}
+
+#animation-loader { 
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 0px;
+	background-color: #2098D1; 
+	z-index: 2;
+	-webkit-transition: all 5s; 
+	-moz-transition: all 5s; 
+	-ms-transition: all 5s; 
+	-o-transition: all 5s; 
+	transition: all 5s; 
+}
+#animation-loader.loading{
+	height: 100%;
+}
+
+.controls2 button {
+	text-align: center !important;
+}
+
+.grey-btn {
+	z-index: 1;
+	border-radius: 3px;
+	background-color: #333 !important;
+	color: #fff;
+	word-break: nowrap !important;
+}
+
+.page {
+	z-index: 0;
+}
+.page:before, 
+.page:after {
+	content:"";
+	display: table ;
+	clear:both;
+}
+
+.seed {
+
+}
+
+.seed span {
+	display: block;
+	padding: 0 10px;
+}
+
+.seed span b {
+	color: #87CE26;
+	font-family: 'Roboto Mono', sans-serif;
+}
+
+.bottom_arrow {
+	position: relative;
+	text-align: center;
+	color: #999;
+}
+
+.bottom_arrow i{
+	opacity: 0;
+	display: block;
+	font-size: 20px;
+
+	animation: fadeInOut 2s infinite;
+	-webkit-animation: fadeInOut 2s infinite;
+	-moz-animation: fadeInOut 2s infinite;
+	-o-animation: fadeInOut 2s infinite;
+}
+
+.bottom_arrow i:last-child {
+	opacity: 0;
+	display: block;
+	font-size: 25px;
+	margin-top: -20px;
+	animation: fadeInOut 2.2s infinite;
+	-webkit-animation: fadeInOut 2.2s infinite;
+	-moz-animation: fadeInOut 2.2s infinite;
+	-o-animation: fadeInOut 2.2s infinite;
+}
+
+@-webkit-keyframes fadeInOut {
+	from { opacity: 0.2; }
+	50% { opacity: 1.0; }
+	to { opacity: 0.2; }
+}
+
+@-moz-keyframes fadeInOut {
+	from { opacity: 0.2; }
+	50% { opacity: 1.0; }
+	to { opacity: 0.2; }
+}
+
+@-o-keyframes fadeInOut {
+	from { opacity: 0.2; }
+	50% { opacity: 1.0; }
+	to { opacity: 0.2; }
+}
+@keyframes fadeInOut {
+	from { opacity: 0.2; }
+	50% { opacity: 1.0; }
+	to { opacity: 0.2; }
+}
+
+.transaction {
+
+}
+
+.second, .amount {
+	display: block;
+}
+
+.second {
+	color: #999;
+}
+
+.amount, .address {
+	display: block;
+	font-family: 'Roboto Mono', sans-serif;
+}
+
+.address {
+	background-color: transparent;
+	word-break: break-all;
+}
+
+.circle-box {
+	display: block;
+	width: 165px;
+	height: 165px;
+	position: relative;
+	margin: 0 auto;
+}
+.arc-ghost {
+	position: absolute;
+	width: 165px;
+	height: 165px;
+	border: 27.5px solid #333;
+	border-radius: 50%;
+	z-index: 0;
+}
+.arc-eye {
+	position: absolute;
+	background-image: url("./../images/fingerprint.png");
+	background-size: 70px 70px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	top: 27px;
+	left: 27px;
+	width: 111px;
+	height: 111px;
+	border-radius: 50%;
+	border: 3px solid #2098D1;
+}
+
+.success {
+	position: absolute;
+	background-image: url("./../images/check.png");
+	background-size: 70px 70px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	top: 27px;
+	left: 27px;
+	width: 111px;
+	height: 111px;
+	border-radius: 50%;
+	border: 3px solid #445514;
+}
+
+#circle {
+	position: absolute;
+	width: 165px;
+	height: 165px;
+	z-index: 3;
+	left: 0px;
+}
+
+
+
+

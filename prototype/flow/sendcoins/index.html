@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=240, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Trezor2 Send Coins</title>
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/ionicons.min.css" rel="stylesheet">
+<link href="../../css/t2grid.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container screen">
+		<div class="content sending">
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3 to-bottom">
+						<span class="title">Confirm sending</span>
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span class="amount">0.00003 BTC</span>
+						<span class="second">To address:</span>
+						<span class="address">1NDpZ2wyFekVezssSXv2tmQgmxcoHMUJ7u</span>
+					</div>
+				</div>			
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="text-info">
+					<div class="row-1">
+						<div class="col-3">
+							<span class="title">Last summary</span>
+						</div>
+					</div>
+					<div class="row-3">
+						<div class="col-3">
+							<span class="second">Sending:</span>
+							<span class="amount">0.003 BTC</span>
+							<span class="second">fee will be </span>
+							<span class="amount">0.00001 BTC</span>
+						</div>
+					</div>
+				</div>
+				<div class="loader">
+					<div class="row-4">
+						<div class="col-3 vertical-center horizontal-center">
+							<div class="circle-box">
+								<canvas id='circle'></canvas>
+								<div class="arc-ghost"></div>
+								<div class="arc-eye"></div>
+							</div>
+						</div>
+					</div>
+				</div>		
+				<div class="row-1 controls controls2">
+					<div class="col-3">
+						<button class="hold" id='confirm_sending'>Hold to confirm</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="content send">
+			<div class="page">
+				<div class="row-4">
+					<div class="col-3 vertical-center horizontal-center">
+						<span>Coins send!</span>
+					</div>
+				</div>
+				<div class="row-1 controls controls2">
+					<div class="col-3">
+						<a href="../../"><button class="confirm"  id='confirm_pin'><i class="icon ion-checkmark-round"></i>Confirm</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../scripts/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var confirming = false;
+			var timer;
+			var counter = 0;
+			var canvas = document.getElementById('circle');
+			canvas.width = canvas.height = 165;
+			var ctx = canvas.getContext('2d');
+
+			ctx.translate(165 / 2, 165 / 2);
+			ctx.rotate((-1 / 2 + 0 / 180) * Math.PI); 
+			var radius = (165 - 27.5) / 2;
+
+			$('.loader').hide();
+			$('.send').hide();
+
+			function repeater() {
+				ctx.clearRect(-82.5, -82.5, 165, 165);
+				if(counter >= 100) {
+					drawCircle('#87CE26', 27.5, 0);
+					$('.arc-eye').addClass('success');
+					if(!confirming) {
+						$('.text-info').show();
+						$('.loader').hide();
+						$('#confirm_sending').html('Done');
+						clearInterval(timer);
+						timer = null;
+						counter = 0;
+					}
+
+				} else if(counter < 0) {
+					clearInterval(timer);
+					timer = null;
+					$('.text-info').show();
+					$('.loader').hide();
+					counter = 0;
+				} else {
+					drawCircle('#2098D1', 27.5, counter);
+				}
+				if(confirming) {
+					counter++;
+				} else {
+					counter--;
+				}
+			}
+
+
+			function drawCircle(color, lineWidth, percent) {
+				percent = percent / 50;
+				console.log(percent);
+				ctx.beginPath();
+				ctx.arc(0, 0, radius, 2*Math.PI, percent*Math.PI);
+				ctx.strokeStyle = color;
+				ctx.lineCap = 'butt';
+				ctx.lineWidth = lineWidth
+				ctx.stroke();
+			};
+
+			$(document).on('touchstart mousedown', '.page', function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				if(!!$(this).nextAll(".page").eq(0).position()) {
+					$(".screen").animate({ scrollTop: 300 }, 400, 'swing');	
+				}
+			}).on('touchstart mousedown', '#confirm_sending', function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				confirming = true;
+				$('.text-info').hide();
+				$('.loader').show();
+				$('#confirm_sending').html('Confirming ...');
+				timer = setInterval(repeater, 10);
+
+			}).on('touchend mouseup', '#confirm_sending', function(event) {
+				event.preventDefault();
+				event.stopPropagation();
+				confirming = false;
+				$('#confirm_sending').html('Hold to confirm');
+			});
+		});
+</script>
+</body>
+</html>

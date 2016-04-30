@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=240, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Trezor2 Enter PIN</title>
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/ionicons.min.css" rel="stylesheet">
+<link href="../../css/t2grid.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container screen">
+		<div class="content pin">
+			<div class="row-1 pin_input">
+				<div class="col-3">
+					<input type="text" data-role="none" placeholder="Enter PIN" id="pin_input" />
+					<div class="backspace">x</div>
+				</div>
+			</div>
+			<div class="row-1 pad_line vertical-border">
+				<div class="col-1 no-border">
+					<button class="pin_btn">7</button>
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">1</button>				
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">2</button>
+				</div>
+			</div>
+			<div class="row-1 pad_line vertical-border">
+				<div class="col-1 no-border">
+					<button class="pin_btn">5</button>
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">9</button>
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">3</button>
+				</div>
+			</div>
+			<div class="row-1 pad_line">
+				<div class="col-1 no-border">
+					<button class="pin_btn">4</button>
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">8</button>
+				</div>
+				<div class="col-1">
+					<button class="pin_btn">6</button>
+				</div>
+			</div>
+			<div class="row-1 controls">
+				<div class="col-2">
+					<button class="cancel"><i class="icon ion-close-round"></i>Cancel</button>
+				</div>
+				<div class="col-2">
+					<a href="../../"> <button class="confirm"  id='confirm_pin'><i class="icon ion-checkmark-round"></i>Confirm</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../scripts/jquery.min.js"></script>
+	<script src="../../scripts/jquery.sparkline.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+
+				$( ".pin_btn" ).click(function() {
+					var ent =  $(this).parent().parent().parent().find('input')[0];
+					var val = $(ent).val();
+					$(ent).val(val+$(this).html());
+					$(".backspace").show();
+				});
+
+				$(".backspace").click(function(){
+					var ent =  $(this).parent().find('input')[0];
+					$(ent).val('');
+					$(".backspace").hide();
+				});
+		});
+	</script>
+</body>
+</html>

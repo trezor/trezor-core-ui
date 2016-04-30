@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=240, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Trezor2 Homescreen</title>
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/ionicons.min.css" rel="stylesheet">
+<link href="../../css/t2grid.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container screen">
+		<div class="content homescreen">
+			<div class="row-2">
+				<div class="col-3 horizontal-center">
+					<a href="../../"><span id="price">$462.5</span></a>
+					<span id="subtitle">Last 24h</span>
+					<span id="progress">+0.75%</span>
+				</div>
+			</div>
+			<div class="row-3">
+				<div class="col-3">
+					<div id="sparkline"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../../scripts/jquery.min.js"></script>
+	<script src="../../scripts/jquery.sparkline.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#sparkline").sparkline([2,4,5,4,4,5,7], {
+				type: 'line',
+				width: '245px',
+				height: '138px',
+				lineColor: '#87CE26',
+				fillColor: '#445514',
+				lineWidth: 2,
+				spotColor: undefined,
+				minSpotColor: undefined,
+				maxSpotColor: undefined,
+				highlightSpotColor: undefined,
+				highlightLineColor: undefined});
+		});
+	</script>
+</body>
+</html>

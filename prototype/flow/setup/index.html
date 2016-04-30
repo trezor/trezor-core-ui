@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=240, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Trezor2 Setup</title>
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/ionicons.min.css" rel="stylesheet">
+<link href="../../css/t2grid.css" rel="stylesheet">
+<link href="../../css/custom.css" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container screen">
+		<div class="content seed">
+			<div class="page">
+				<div class="row-1 fixed">
+					<div class="col-3 to-bottom">
+						<span class="title">Write down your seed</span>
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>1.</b> auto</span>
+						<span><b>2.</b> model</span>
+						<span><b>3.</b> rifle</span> 
+						<span><b>4.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>5.</b> auto</span> 
+						<span><b>6.</b> model</span>
+						<span><b>7.</b> rifle</span> 
+						<span><b>8.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>9.</b> auto</span> 
+						<span><b>10.</b> model</span>
+						<span><b>11.</b> rifle</span> 
+						<span><b>12.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>13.</b> auto</span> 
+						<span><b>14.</b> model</span>
+						<span><b>15.</b> rifle</span> 
+						<span><b>16.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>17.</b> auto</span> 
+						<span><b>18.</b> model</span>
+						<span><b>19.</b> rifle</span> 
+						<span><b>20.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-1">
+					<div class="col-3">
+					</div>
+				</div>
+				<div class="row-3">
+					<div class="col-3">
+						<span><b>21.</b> auto</span> 
+						<span><b>22.</b> model</span>
+						<span><b>23.</b> rifle</span> 
+						<span><b>24.</b> digital</span> 
+					</div>
+				</div>
+				<div class="row-1">
+					<div class="col-3 bottom_arrow vertical-center horizontal-center">
+						<i class="icon ion-chevron-down"></i>
+						<i class="icon ion-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			<div class="page">
+				<div class="row-2">
+					<div class="col-3 to-bottom">
+						<span>Proceed to last check of your 24 seed words</span>
+					</div>
+				</div>
+				<div class="row-2">
+				</div>
+				<div class="row-1 controls controls2">
+					<div class="col-3">
+						<a href="../../"><button class="confirm" id='seed_ok'><i class="icon ion-checkmark-round"></i>Ok</button></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script src="../../scripts/jquery.min.js"></script>
+	<script src="../../scripts/jquery.sparkline.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.page').on("touchstart", function(e){
+				if(!!$(this).nextAll(".page").eq(0).position()) {
+					var pos = $(this).nextAll(".page").eq(0).position().top + 10;
+					$(".screen").animate({ scrollTop: pos }, 400, 'swing');	
+
+					if(!!!$(this).nextAll(".page").eq(1).position()) {
+						if($('.seed').is(":visible")) {
+							var title = $('.seed').find('.title')[0]
+							$(title).hide();
+							$('.page').off();
+						}
+					}
+				}
+			});
+
+		});
+	</script>
+</body>
+</html>
