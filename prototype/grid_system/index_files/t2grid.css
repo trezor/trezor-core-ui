@@ -15,10 +15,10 @@ body {
 }
 
 .grid-container {
-	margin: 5px;
-	height: 230px;
-	width: 230px;
-	max-width : 230px; 
+	margin: 0px;
+	height: 240px;
+	width: 240px;
+	max-width : 240px; 
 }
 
 .grid-container *{
@@ -29,14 +29,14 @@ body {
 	position: relative;
 	float: left;
 	width: 100%;
-	min-height: 46px;
+	min-height: 48px;
 }
 
-.row-1{ height: 46px; }
-.row-2{ height: 92px; }
-.row-3{ height: 138px;   }
-.row-4{ height: 184px;   }
-.row-5{ height:  230px;   }
+.row-1{ height: 48px; }
+.row-2{ height: 96px; }
+.row-3{ height: 144px;   }
+.row-4{ height: 192px;   }
+.row-5{ height:  240px;   }
 
 .row:before, 
 .row:after {
